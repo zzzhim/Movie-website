@@ -4,15 +4,21 @@ const koaBodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const cors = require('koa-cors');
 
-const routers = require('./routes')
+const { connect } = require('./database/index')
 
-const app = new koa()
+!(async () => {
+    await connect()
 
-app.use(logger()).use(cors())
+    const routers = require('./routes')
 
-routers(app)
+    const app = new koa()
+
+    app.use(logger()).use(cors())
+
+    routers(app)
 
 
-app.listen(3000, () => {
-    console.log('node启动成功')
-})
+    app.listen(3000, () => {
+        console.log('node启动成功')
+    })
+})()
