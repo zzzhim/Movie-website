@@ -58,7 +58,6 @@ const sleep = time => new Promise(resolve => {
 
     browser.close() // 将浏览器关闭。
 
-    console.log(result);
 
     process.send({ result }) // 发送一个对象  消息可以通过 [process.on('message')] 事件接收。
 

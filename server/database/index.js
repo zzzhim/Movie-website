@@ -4,10 +4,15 @@ const db = 'mongodb://localhost/blackRide'
 
 require('./schema/movie')
 require('./schema/category')
+mongoose.Promise = global.Promise
+
 
 module.exports = {
     connect () {
+
         let maxConnectTimes = 0
+
+        mongoose.connect(db)
 
         mongoose.connection.on('disconnected', () => {
             maxConnectTimes++

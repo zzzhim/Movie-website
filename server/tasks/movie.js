@@ -12,17 +12,16 @@ child.on('error', err => {
 })
 
 child.on('message', data => {
-
     data.result.forEach(async element => {
         // 查询数据库中是否存在doubanId
-        let movie = Movie.findOne({
+        let movie = await Movie.findOne({
             doubanId: element.doubanId
         })
-
         if(!movie) {
             // 不存在的话就把element存到数据库中
             movie = new Movie(element)
             await movie.save()
+            console.log('Movie插入数据成功');
         }
     })
 })
