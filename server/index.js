@@ -6,8 +6,10 @@ const cors = require('koa-cors');
 
 const { connect } = require('./database/index')
 
-!(async () => {
+;(async () => {
     await connect()
+
+    require('./tasks/movie')
 
     const routers = require('./routes')
 
@@ -16,7 +18,6 @@ const { connect } = require('./database/index')
     app.use(logger()).use(cors())
 
     routers(app)
-
 
     app.listen(3000, () => {
         console.log('node启动成功')

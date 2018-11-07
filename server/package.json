@@ -9,6 +9,8 @@
     "koa-cors": "^0.0.16",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.3.10"
+    "mongoose": "^5.3.10",
+    "puppeteer": "^1.10.0",
+    "puppeteer-core": "^1.10.0"
   }
 }
