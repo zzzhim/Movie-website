@@ -9,7 +9,11 @@ const { connect } = require('./database/index')
     await connect()
 
     // require('./tasks/movie')
-    require('./crawler/video')
+    // require('./tasks/api')
+    // require('./crawler/video')
+    // require('./tasks/trailer')
+    require('./tasks/aliyunOSS')
+
 
     const routers = require('./routes')
 

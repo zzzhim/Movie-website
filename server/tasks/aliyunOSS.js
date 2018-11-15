@@ -57,23 +57,12 @@ const client = new OSS(bucket)
                 ends.pipe(fs.createWriteStream(__dirname + `/imgs/${imgName}`)) // 写入
 
                 ends.on('end',async () => { // 写入后
-                    // let data = await new Promise((resolve, reject) => {
-                    //     fs.readFile(__dirname + `/imgs/${imgName}`, (err, data) => {
-                    //         if(err){
-                    //             reject(err)
-                    //         }
-                    //         resolve(data)
-                    //     })
-                    // })
-                    // // 通过Buffer的方式传
-                    // data = new Buffer.from(data)
                     put(imgName).then(val => {
                         // 当文件上传到阿里云OSS后 删除文件
                         fs.unlink(__dirname + `/imgs/${imgName}`,async function (err) {
                             if (err){
                                 console.log(err);
                             }
-
                             console.log('文件删除成功');
                         })
                     })

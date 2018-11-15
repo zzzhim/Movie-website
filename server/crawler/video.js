@@ -1,19 +1,13 @@
 const base = `https://movie.douban.com/subject/`
 
 const puppeteer = require('puppeteer')
-const mongoose = require('mongoose')
-const Movie = mongoose.model('Movie')
 
 const sleep = time => new Promise(resolve => {
     setTimeout(resolve, time)
 })
 
-;(async () => {
-    const movies = await new Promise(resolve => {
-        Movie.find({}, (err, data) => {
-            resolve(data)
-        })
-    })
+process.on('message', async movies => { 
+
     console.log('开始爬取开始爬取视频和封面资源')
     
     const browser = await puppeteer.launch({
@@ -22,14 +16,10 @@ const sleep = time => new Promise(resolve => {
     })
 
     const page = await browser.newPage()
-    // console.log(movies[0].doubanId);
-    
 
-    // for (let index = 0; index < movies.length; index++) {
-        // console.log(base + movies[index].doubanId);
-    await movies.forEach(async element => {
-        
-        await page.goto(base + element.doubanId, {
+    for (let index = 0; index < movies.length; index++) {
+
+        await page.goto(base + movies[index].doubanId, {
             waitUntil: 'networkidle2'
         })
 
@@ -72,11 +62,15 @@ const sleep = time => new Promise(resolve => {
 
         let data = {
             cover: result.cover,
-            doubanId: element.doubanId,
+            doubanId: movies[index].doubanId,
             video
         }
-    })
-})()
+        process.send({ data })
+    }
+
+    browser.close() // 将浏览器关闭。
+    process.exit(0) // 以结束状态码code指示Node.js同步终止进程
+})
 
 
 

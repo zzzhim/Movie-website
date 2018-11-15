@@ -4,13 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "ali-oss": "^6.0.1",
     "koa": "^2.6.1",
     "koa-bodyparser": "^4.2.1",
     "koa-cors": "^0.0.16",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "mongoose": "^5.3.10",
+    "nanoid": "^2.0.0",
     "puppeteer": "^1.10.0",
-    "puppeteer-core": "^1.10.0"
+    "puppeteer-core": "^1.10.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
   }
 }

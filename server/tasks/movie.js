@@ -12,6 +12,8 @@ child.on('error', err => {
 })
 
 child.on('message', data => {
+    console.log(111);
+    
     data.result.forEach(async element => {
         // 查询数据库中是否存在doubanId
         let movie = await Movie.findOne({
