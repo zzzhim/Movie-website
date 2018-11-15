@@ -8,7 +8,8 @@ const { connect } = require('./database/index')
 ;(async () => {
     await connect()
 
-    require('./tasks/movie')
+    // require('./tasks/movie')
+    require('./crawler/video')
 
     const routers = require('./routes')
 
