@@ -45,6 +45,8 @@ const client = new OSS(bucket)
             if ((item[val] == item.poster) || (item[val] == item.cover)) {
 
                 let url = item[val]
+                // console.log(url);
+                
                 let arr = url.split('.')
                 let imgName = nanoid() + '.' + arr[arr.length - 1] // 获取文件名
 
