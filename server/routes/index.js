@@ -1,11 +1,10 @@
-module.exports = app => {
-    const Router = require('koa-router')
-    
-    const router = new Router()
+const Router = require('koa-router')
 
-    app.use(router.routes()).use(router.allowedMethods())
+const router = new Router()
 
-    router.get('/', async ctx => {
-        ctx.body = 'hello world'
-    })
-}
+router.get('/', async ctx => {
+    ctx.body = 'hello world'
+})
+
+
+module.exports = router
