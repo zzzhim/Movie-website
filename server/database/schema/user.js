@@ -19,30 +19,4 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
-//可以添加一些自定义的实例方法
-// UserSchema.statics = {
-//     getUserByName: function (username) {
-//         return new Promise((resolve, reject) => {
-//             User.findOne({ username }, (err, doc) => {
-//                 if (err) {
-//                     reject(err)
-//                 } else {
-//                     resolve(doc)
-//                 }
-//             })
-//         })
-//     },
-//     updateForm(username, parameter) { // 修改数据
-//         return new Promise((resolve, reject) => {
-//             User.update(username, parameter, (err, raw) => {
-//                 if (err) {
-//                     reject(err);
-//                 } else {
-//                     resolve(raw);
-//                 }
-//             })
-//         })
-//     },
-// }
-
 const User = mongoose.model('User', UserSchema)

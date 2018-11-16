@@ -1,46 +1,45 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
+// 引入查询方法
 const { getUserByName } = require('../utils/Search')
-
+// 引入创建token的方法
+const createToken = require('../utils/createToken')
 class UserController {
+    // 注册
     async registered(ctx) {
-        // console.log(ctx.request.body);
         const { pass, checkPass, username, email } = ctx.request.body
 
         if(pass == checkPass) {
-            // const bool = await new Promise((resolve, reject) => {
-            //     User.findOne({ username }, (err, data) => {
-            //         err ? reject(err) : resolve(data)
-            //     })
-            // })
-            const bool = await getUserByName(User, { username })
-
-            if(!bool) {
-                const UserSchame = await new User({ username, pass, email })
-                await UserSchame.save()
-                ctx.body = {
-                    status: 200,
-                    success: true,
-                    message: '注册成功',
-                    data: null
-                }
-            }else {
-                ctx.body = {
-                    status: 200,
-                    success: false,
-                    message: '账户已存在',
-                    data: null
-                }
-            }
-        }else {
-            ctx.body = {
+            let res = {
                 status: 200,
-                success : false,
-                message : '两次密码不相同',
+                success: false,
+                message: null,
                 data: null
             }
+            // 查询账户是否已存在
+            const bool = await getUserByName(User, { email })
+            
+            if(!bool) {
+                // 把用户数据存到数据库
+                const UserSchame = await new User({ username, password: pass, email })
+                await UserSchame.save()
+                const token = createToken(email)
+
+                res.message = '注册成功'
+                res.success = true
+                res.data = { token }
+                ctx.body = res
+            }else {
+                res.message = '账户已存在'
+                ctx.body = res
+            }
+        }else {
+            res.message = '两次密码不相同'
+            ctx.body = res
         }
     }
+
+
 }
 
 module.exports = new UserController
