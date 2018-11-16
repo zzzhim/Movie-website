@@ -55,7 +55,6 @@ class UserController {
         const { email, password } = ctx.request.body
         // 查询账户是否存在
         const bool = await getUserByName(User, { email })
-        console.log(bool);
         if(bool) {
             if (md5(md5(md5(password))) == bool.password) {
                 const token = createToken(email)
