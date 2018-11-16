@@ -17,7 +17,6 @@ const router = require('./routes')
     // require('./tasks/trailer')
     // require('./tasks/aliyunOSS')
 
-
     app.use(logger())
         .use(cors())
         .use(bodyParser())

@@ -25,8 +25,9 @@
     </div>
 </template>
 
-
 <script>
+    import axios from '@/utils/axios'
+
     export default {
         data() {
             // 密码验证
@@ -95,12 +96,17 @@
         methods: {
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
-                if (valid) {
-                    alert('submit!');
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
+                    if (valid) {
+                        axios({
+                            url: '/',
+                            method: 'get'
+                        }).then(({ data }) => {
+                            console.log(data);
+                        })
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
                 });
             },
             resetForm(formName) {
