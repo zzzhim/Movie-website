@@ -4,6 +4,8 @@ const User = mongoose.model('User')
 const { getUserByName } = require('../utils/Search')
 // 引入创建token的方法
 const createToken = require('../utils/createToken')
+// 引入加密方法
+const md5 = require('md5')
 class UserController {
     // 注册
     async registered(ctx) {
@@ -20,8 +22,9 @@ class UserController {
             const bool = await getUserByName(User, { email })
             
             if(!bool) {
+                const password = md5(md5(md5(pass)))
                 // 把用户数据存到数据库
-                const UserSchame = await new User({ username, password: pass, email })
+                const UserSchame = await new User({ username, password, email })
                 await UserSchame.save()
                 const token = createToken(email)
 

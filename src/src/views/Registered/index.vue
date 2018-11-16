@@ -27,6 +27,7 @@
 
 <script>
     import axios from '@/utils/axios'
+    import { setToken } from '@/utils/cookie'
 
     export default {
         data() {
@@ -107,7 +108,16 @@
                             method: 'post',
                             data: this.ruleForm2
                         }).then(({ data }) => {
-                            console.log(data);
+                            // 设置token值
+                            setToken(data.data.token)
+                            this.$message({ // 消息提示
+                                message: '恭喜您,注册成功',
+                                type: 'success'
+                            });
+                            // 500毫秒后跳转到首页
+                            setTimeout(() => {
+                                this.$router.push('/')
+                            }, 500);
                         })
                     } else {
                         console.log('error submit!!');
