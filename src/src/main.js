@@ -9,6 +9,8 @@ import ElementUI from 'element-ui';
 // 引入element-ui样式
 import 'element-ui/lib/theme-chalk/index.css';
 
+import store from '@/store'
+
 Vue.use(ElementUI);
 
 Vue.config.productionTip = true
@@ -17,6 +19,7 @@ Vue.config.productionTip = true
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

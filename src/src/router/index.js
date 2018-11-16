@@ -4,7 +4,6 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { getToken } from '@/utils/cookie'
 
-
 Vue.use(Router)
 
 const router = new Router({
@@ -36,7 +35,7 @@ router.beforeEach((to, from, next) => {
   if (getToken()) {
     // 如果有token值了
     if (to.path === '/login') {
-      next({ path: '/list' })
+      next({ path: '/' })
       // 进度条结束
       NProgress.done();
     } else {
