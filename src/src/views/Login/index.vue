@@ -1,5 +1,6 @@
 <template>
     <div>
+        <v-header :activeIndex="activeIndex"></v-header>
         <el-row class="box">
             <el-col :span="12" :offset="6">
                 <el-form :model="userForm" status-icon :rules="rules" ref="userForm" label-width="100px" class="demo-ruleForm">
@@ -22,6 +23,7 @@
 <script>
     import axios from '@/utils/axios'
     import { setToken } from '@/utils/cookie'
+    import header from '@/components/header/header'
 
     export default {
         data() {
@@ -52,6 +54,7 @@
                 }
             }
             return {
+                activeIndex: '/login',
                 userForm: {
                     email: null,
                     password: null
@@ -68,7 +71,7 @@
                     email: [
                         { required: true, validator: validateEmail, trigger: 'blur' }
                     ]
-                }
+                },
             }
         },
         methods: {
@@ -102,7 +105,10 @@
             },
             resetForm(formName) {
                 this.$refs[formName].resetFields();
-            }
+            },
+        },
+        components: {
+            'v-header': header
         }
     }
 </script>

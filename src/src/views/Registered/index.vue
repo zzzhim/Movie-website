@@ -1,5 +1,6 @@
 <template>
     <div>
+        <v-header :activeIndex="activeIndex"></v-header>
         <el-row class="box">
             <el-col :span="12" :offset="6">
                 <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
@@ -28,6 +29,7 @@
 <script>
     import axios from '@/utils/axios'
     import { setToken } from '@/utils/cookie'
+    import header from '@/components/header/header'
 
     export default {
         data() {
@@ -67,6 +69,7 @@
                 }
             }
             return {
+                activeIndex: '/registered',
                 ruleForm2: {
                     pass: '',
                     checkPass: '',
@@ -131,6 +134,9 @@
             resetForm(formName) {
                 this.$refs[formName].resetFields();
             }
+        },
+        components: {
+            'v-header': header
         }
     }
 </script>
