@@ -6,6 +6,7 @@ const { getUserByName } = require('../utils/Search')
 const createToken = require('../utils/createToken')
 // 引入加密方法
 const md5 = require('md5')
+
 class UserController {
     // 注册
     async registered(ctx) {
@@ -42,7 +43,35 @@ class UserController {
         }
     }
 
+    // 登录
+    async login(ctx) {
+        let res = {
+            status: 200,
+            success: false,
+            message: null,
+            data: null
+        }
 
+        const { email, password } = ctx.request.body
+        // 查询账户是否存在
+        const bool = await getUserByName(User, { email })
+        console.log(bool);
+        if(bool) {
+            if (md5(md5(md5(password))) == bool.password) {
+                const token = createToken(email)
+                res.message = '登录成功'
+                res.success = true
+                res.data = { token }
+                ctx.body = res
+            }else {
+                res.message = '账户或密码不正确!!!'
+                ctx.body = res
+            }
+        }else {
+            res.message = '账户或密码不正确!!!'
+            ctx.body = res
+        }
+    }
 }
 
 module.exports = new UserController

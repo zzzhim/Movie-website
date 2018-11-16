@@ -111,7 +111,7 @@
                             // 设置token值
                             setToken(data.data.token)
                             this.$message({ // 消息提示
-                                message: '恭喜您,注册成功',
+                                message: data.message,
                                 type: 'success'
                             });
                             // 500毫秒后跳转到首页
@@ -120,7 +120,10 @@
                             }, 500);
                         })
                     } else {
-                        console.log('error submit!!');
+                        this.$message({ // 消息提示
+                            message: '注册失败',
+                            type: 'warning'
+                        });
                         return false;
                     }
                 });
