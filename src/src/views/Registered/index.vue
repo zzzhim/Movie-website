@@ -74,7 +74,12 @@
                 },
                 rules2: {
                     pass: [
-                        {  required: true, validator: validatePass, trigger: 'blur' }
+                        {  required: true, validator: validatePass, trigger: 'blur' },
+                        {
+                            min: 6,
+                            max: 12,
+                            message: "密码必须在6-12位之间",
+                        }
                     ],
                     checkPass: [
                         {  required: true, validator: validatePass2, trigger: 'blur' }
@@ -98,8 +103,9 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         axios({
-                            url: '/',
-                            method: 'get'
+                            url: '/registered',
+                            method: 'post',
+                            data: this.ruleForm2
                         }).then(({ data }) => {
                             console.log(data);
                         })

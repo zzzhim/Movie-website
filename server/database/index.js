@@ -4,8 +4,8 @@ const db = 'mongodb://localhost/blackRide'
 
 require('./schema/movie')
 require('./schema/category')
+require('./schema/user')
 mongoose.Promise = global.Promise
-
 
 module.exports = {
     connect () {
