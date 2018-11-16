@@ -112,14 +112,22 @@
 </template>
 
 <script>
-
+    import axios from '@/utils/axios'
 
     export default {
         data() {
             return {
 
             }
-        }
+        },
+        mounted() {
+            axios({
+                url: '/home',
+                method: 'get'
+            }).then(({ data }) => {
+                console.log(data);
+            })
+        },
     }
 </script>
 

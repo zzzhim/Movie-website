@@ -8,6 +8,13 @@ class Search {
         })
     }
 
+    async getUserByNameAll(db) {
+        return await new Promise((resolve, reject) => {
+            db.find({}, (err, data) => {
+                err ? reject(err) : resolve(data)
+            })
+        })
+    }
 }
 
 module.exports = new Search()

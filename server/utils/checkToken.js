@@ -1,11 +1,11 @@
-import jwt from 'jsonwebtoken'
-import { secret } from '../config'
+const jwt = require('jsonwebtoken')
+const { secret } = require('../config/config')
 
-export default async ( ctx, next ) => {
+module.exports = async ( ctx, next ) => {
   const XToken = ctx.get('X-Token')
 
   try {
-    await jwt.verify(XToken, secret);     //如果token过期或验证失败，将抛出错误
+    await jwt.verify(XToken, secret)     //如果token过期或验证失败，将抛出错误
     await next()
   } catch (err) {
     if (err.message == 'jwt expired') {

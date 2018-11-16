@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getToken } from '@/utils/cookie'
+import { getToken, removeToken } from '@/utils/cookie'
 
 import store from '../store/index'
 
@@ -27,8 +27,14 @@ instance.interceptors.request.use(
 // 添加响应拦截器
 instance.interceptors.response.use(
     function (response) {
-        // 对响应数据做点什么
-        return response;
+        console.log(response);
+        if (response.data.code == 401) {
+            //token已过期的状态码
+            removeToken()
+            location.reload()
+        } else {
+            return response
+        }
     },
     function (error) {
         // 对响应错误做点什么
