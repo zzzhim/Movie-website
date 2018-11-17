@@ -3,7 +3,7 @@
         <v-header></v-header>
         <el-container>
             <v-aside></v-aside>
-            <v-main></v-main>
+            <v-main ref="refCreated"></v-main>
         </el-container>
     </div>
 </template>
@@ -24,8 +24,7 @@
         methods: {
 
         },
-        mounted() {
-
+        destroyed() {
         },
         components: {
             'v-header': header,

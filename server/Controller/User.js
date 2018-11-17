@@ -45,7 +45,6 @@ class UserController {
 
     // 登录
     async login(ctx) {
-        console.log(ctx);
         let res = {
             status: 200,
             success: false,

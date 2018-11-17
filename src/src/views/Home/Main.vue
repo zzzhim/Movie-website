@@ -3,105 +3,26 @@
         <el-row>
             <el-col :span="24">
                 <el-row :gutter="20">
-                    <el-col :span="6" class="box">
+                    <el-col :span="6" class="box" v-for="(item, index) in CardData" :key="index">
                         <el-card :body-style="{ padding: '0px' }" class="box-card">
                             <router-link to="" tag="div" class="box-card-box">
-                                <img src="http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/2mjXl2hBOv6qvkHUx_CO1.jpg" class="box-card-box-image">
+                                <img :src=" 'http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/' + item.posterKey" class="box-card-box-image">
                             </router-link>
                             <div style="padding: 14px;">
-                                <router-link  class="box-card-title" tag="div" to="">波西米亚狂想曲 / 波希米亚狂想曲(台)</router-link>
-                                <router-link to="" tag="div" class="box-card-content" title="《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。">
-                                    《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。
+                                <router-link  class="box-card-title" tag="div" to=""> {{ item.title }}</router-link>
+                                <router-link to="" tag="div" class="box-card-content" :title="item.summary">
+                                    {{ item.summary }}
                                 </router-link>
                             </div>
                             <div class="box-card-footer">
-                                <div>{{ '14天前更新' }}</div>
-                                <div>{{ '8.6分' }}</div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                    <el-col :span="6" class="box">
-                        <el-card :body-style="{ padding: '0px' }" class="box-card">
-                            <router-link to="" tag="div" class="box-card-box">
-                                <img src="http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/2mjXl2hBOv6qvkHUx_CO1.jpg" class="box-card-box-image">
-                            </router-link>
-                            <div style="padding: 14px;">
-                                <router-link  class="box-card-title" tag="div" to="">波西米亚狂想曲 / 波希米亚狂想曲(台)</router-link>
-                                <router-link to="" tag="div" class="box-card-content" title="《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。">
-                                    《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。
-                                </router-link>
-                            </div>
-                            <div class="box-card-footer">
-                                <div>{{ '14天前更新' }}</div>
-                                <div>{{ '8.6分' }}</div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                    <el-col :span="6" class="box">
-                        <el-card :body-style="{ padding: '0px' }" class="box-card">
-                            <router-link to="" tag="div" class="box-card-box">
-                                <img src="http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/2mjXl2hBOv6qvkHUx_CO1.jpg" class="box-card-box-image">
-                            </router-link>
-                            <div style="padding: 14px;">
-                                <router-link  class="box-card-title" tag="div" to="">波西米亚狂想曲 / 波希米亚狂想曲(台)</router-link>
-                                <router-link to="" tag="div" class="box-card-content" title="《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。">
-                                    《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。
-                                </router-link>
-                            </div>
-                            <div class="box-card-footer">
-                                <div>{{ '14天前更新' }}</div>
-                                <div>{{ '8.6分' }}</div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                    <el-col :span="6" class="box">
-                        <el-card :body-style="{ padding: '0px' }" class="box-card">
-                            <router-link to="" tag="div" class="box-card-box">
-                                <img src="http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/2mjXl2hBOv6qvkHUx_CO1.jpg" class="box-card-box-image">
-                            </router-link>
-                            <div style="padding: 14px;">
-                                <router-link  class="box-card-title" tag="div" to="">波西米亚狂想曲 / 波希米亚狂想曲(台)</router-link>
-                                <router-link to="" tag="div" class="box-card-content" title="《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。">
-                                    《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。
-                                </router-link>
-                            </div>
-                            <div class="box-card-footer">
-                                <div>{{ '14天前更新' }}</div>
-                                <div>{{ '8.6分' }}</div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                    <el-col :span="6" class="box">
-                        <el-card :body-style="{ padding: '0px' }" class="box-card">
-                            <router-link to="" tag="div" class="box-card-box">
-                                <img src="http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/2mjXl2hBOv6qvkHUx_CO1.jpg" class="box-card-box-image">
-                            </router-link>
-                            <div style="padding: 14px;">
-                                <router-link  class="box-card-title" tag="div" to="">波西米亚狂想曲 / 波希米亚狂想曲(台)</router-link>
-                                <router-link to="" tag="div" class="box-card-content" title="《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。">
-                                    《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。
-                                </router-link>
-                            </div>
-                            <div class="box-card-footer">
-                                <div>{{ '14天前更新' }}</div>
-                                <div>{{ '8.6分' }}</div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                    <el-col :span="6" class="box">
-                        <el-card :body-style="{ padding: '0px' }" class="box-card">
-                            <router-link to="" tag="div" class="box-card-box">
-                                <img src="http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/2mjXl2hBOv6qvkHUx_CO1.jpg" class="box-card-box-image">
-                            </router-link>
-                            <div style="padding: 14px;">
-                                <router-link  class="box-card-title" tag="div" to="">波西米亚狂想曲 / 波希米亚狂想曲(台)</router-link>
-                                <router-link to="" tag="div" class="box-card-content" title="《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。">
-                                    《飞鹰艾迪》导演德克斯特·弗莱彻接棒执导皇后乐队传记片《波西米亚狂想曲》，《黑客军团》拉米·马雷克饰演皇后乐队主唱弗雷迪·默丘利，格威利姆·李饰吉他手布莱恩·梅，本·哈迪饰鼓手罗杰·泰勒，约瑟夫·梅泽罗饰贝斯手约翰·迪肯，艾伦·里奇(《唐顿庄园》《模仿游戏》)加盟饰演主唱弗雷迪·默丘里的经纪人Paul Prenter，讲述主唱弗雷迪·默丘利和成员在Live Aid演唱会前夕重聚，共同造就摇滚历史上最伟大的表演的故事。
-                                </router-link>
-                            </div>
-                            <div class="box-card-footer">
-                                <div>{{ '14天前更新' }}</div>
-                                <div>{{ '8.6分' }}</div>
+                                <div>
+                                    <i class="el-icon-time"></i>
+                                    {{ item.meta.createdAt }}&nbsp;&nbsp;前更新
+                                </div>
+                                <div>
+                                    <i class="el-icon-star-off"></i>
+                                    {{ item.rate }}分
+                                </div>
                             </div>
                         </el-card>
                     </el-col>
@@ -113,20 +34,30 @@
 
 <script>
     import axios from '@/utils/axios'
+    import moment from 'moment'
 
     export default {
         data() {
             return {
-
+                CardData: null
             }
         },
+        methods: {
+           
+        },
         mounted() {
-            axios({
-                url: '/home',
-                method: 'get'
-            }).then(({ data }) => {
-                console.log(data);
-            })
+            setTimeout(() => {
+                axios({
+                    url: '/home',
+                    method: 'get'
+                }).then(({ data }) => {
+                    this.CardData = data.data
+
+                    for (let index = 0; index < this.CardData.length; index++) {
+                        this.CardData[index].meta.createdAt = parseInt(moment(this.CardData[index].meta.createdAt).subtract(0).fromNow("YYYY-MM-DD"))
+                    }
+                })
+            }, 2000);
         },
     }
 </script>
@@ -137,10 +68,12 @@
         .box-card {
             &-box {
                 width: 100%;
-                height: 423px;
+                height: 390px;
+                overflow: hidden;
                 &-image {
                     width: 100%;
-                    height: 100%;
+                    height: 423px;
+                    font-size: 0px;
                 }
             }
             &-title {
