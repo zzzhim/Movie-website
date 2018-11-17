@@ -24,7 +24,7 @@
     import axios from '@/utils/axios'
     import { setToken } from '@/utils/cookie'
     import header from '@/components/header/header'
-
+    
     export default {
         data() {
             // 密码验证

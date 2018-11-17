@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 const Movie = mongoose.model('Movie')
-const { getUserByName, getUserByNameAll } = require('../utils/Search')
+const Category = mongoose.model('Category')
+
+const { getUserByNameAll, getUserByNameClassAll } = require('../utils/Search')
 
 class MovieController {
+    // 首页
     async home(ctx) {
-        console.log(ctx);
         const MovieAll = await getUserByNameAll(Movie)
-        console.log(MovieAll);
         
         ctx.body = {
             status: 200,
@@ -16,7 +17,30 @@ class MovieController {
         }
     }
 
+    // 分类
+    async classIfication(ctx) {
+        const name = ctx.request.query.name
+        
+        const MovieAll = await getUserByNameClassAll(Movie, { tags: name})
 
+        if (MovieAll.length > 0) {
+            ctx.body = {
+                status: 200,
+                success: true,
+                message: name + '列表',
+                data: MovieAll
+            }
+        }else {
+            ctx.body = {
+                status: 200,
+                success: false,
+                message: '暂无',
+                data: null
+            }
+        }
+
+        
+    }
 }
 
 module.exports = new MovieController()

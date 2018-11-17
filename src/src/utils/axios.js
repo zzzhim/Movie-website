@@ -3,15 +3,20 @@ import { getToken, removeToken } from '@/utils/cookie'
 
 import store from '../store/index'
 
+
+
 // 自定义实例默认值
 let instance = axios.create({
     baseURL: 'http://localhost:3000/api/',
     timeout: 5000,
+
 })
+
 
 // 添加请求拦截器
 instance.interceptors.request.use(
     function (config) {
+
         if(store.state.token) {
             // 在发送请求之前做些什么
             config.headers['X-Token'] = getToken()
@@ -34,6 +39,7 @@ instance.interceptors.response.use(
         } else {
             return response
         }
+
     },
     function (error) {
         // 对响应错误做点什么

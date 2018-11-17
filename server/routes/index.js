@@ -20,4 +20,7 @@ router.post('/login', UserController.login)
 // 首页
 router.get('/home', checkToken, MovieController.home)
 
+// 分类
+router.get('/classIfication', checkToken, MovieController.classIfication)
+
 module.exports = router

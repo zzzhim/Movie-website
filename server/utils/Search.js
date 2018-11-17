@@ -15,6 +15,14 @@ class Search {
             })
         })
     }
+
+    async getUserByNameClassAll(db, name) {
+        return await new Promise((resolve, reject) => {
+            db.find( name, (err, data) => {
+                err ? reject(err) : resolve(data)
+            })
+        })
+    }
 }
 
 module.exports = new Search()

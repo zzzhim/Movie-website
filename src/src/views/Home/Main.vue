@@ -1,32 +1,28 @@
 <template>
     <el-main>
-        <el-row>
-            <el-col :span="24">
-                <el-row :gutter="20">
-                    <el-col :span="6" class="box" v-for="(item, index) in CardData" :key="index">
-                        <el-card :body-style="{ padding: '0px' }" class="box-card">
-                            <router-link to="" tag="div" class="box-card-box">
-                                <img :src=" 'http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/' + item.posterKey" class="box-card-box-image">
-                            </router-link>
-                            <div style="padding: 14px;">
-                                <router-link  class="box-card-title" tag="div" to=""> {{ item.title }}</router-link>
-                                <router-link to="" tag="div" class="box-card-content" :title="item.summary">
-                                    {{ item.summary }}
-                                </router-link>
-                            </div>
-                            <div class="box-card-footer">
-                                <div>
-                                    <i class="el-icon-time"></i>
-                                    {{ item.meta.createdAt }}&nbsp;&nbsp;前更新
-                                </div>
-                                <div>
-                                    <i class="el-icon-star-off"></i>
-                                    {{ item.rate }}分
-                                </div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                </el-row>
+        <el-row :gutter="20" id="box">
+            <el-col :span="6" class="box" v-for="(item, index) in CardData" :key="index">
+                <el-card :body-style="{ padding: '0px' }" class="box-card">
+                    <router-link to="" tag="div" class="box-card-box">
+                        <img :src=" 'http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/' + item.posterKey" class="box-card-box-image">
+                    </router-link>
+                    <div style="padding: 14px;">
+                        <router-link  class="box-card-title" tag="div" to=""> {{ item.title }}</router-link>
+                        <router-link to="" tag="div" class="box-card-content" :title="item.summary">
+                            {{ item.summary }}
+                        </router-link>
+                    </div>
+                    <div class="box-card-footer">
+                        <div>
+                            <i class="el-icon-time"></i>
+                            {{ item.meta.createdAt }}&nbsp;&nbsp;前更新
+                        </div>
+                        <div>
+                            <i class="el-icon-star-off"></i>
+                            {{ item.rate }}分
+                        </div>
+                    </div>
+                </el-card>
             </el-col>
         </el-row>
     </el-main>
@@ -35,34 +31,25 @@
 <script>
     import axios from '@/utils/axios'
     import moment from 'moment'
+    import { mapState, mapMutations } from 'vuex'
 
     export default {
         data() {
             return {
-                CardData: null
             }
         },
-        methods: {
-           
-        },
-        mounted() {
-            setTimeout(() => {
-                axios({
-                    url: '/home',
-                    method: 'get'
-                }).then(({ data }) => {
-                    this.CardData = data.data
-
-                    for (let index = 0; index < this.CardData.length; index++) {
-                        this.CardData[index].meta.createdAt = parseInt(moment(this.CardData[index].meta.createdAt).subtract(0).fromNow("YYYY-MM-DD"))
-                    }
-                })
-            }, 2000);
+        computed: {
+            ...mapState(['CardData']),
         },
     }
 </script>
 
 <style lang="less">
+    #box {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
     .box {
         margin-bottom: 20px;
         .box-card {
