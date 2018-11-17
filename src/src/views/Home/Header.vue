@@ -33,6 +33,7 @@
     </el-header>
 </template>
 
+
 <script>
     import axios from '@/utils/axios'
     import { mapMutations } from 'vuex'
@@ -47,8 +48,6 @@
         methods: {
             ...mapMutations(['SET_CARD']),
             handleSelect(key, keyPath) {
-                var CancelToken = axios.CancelToken;
-                var source = CancelToken.source();
                 if(key != '/') {
                     const arr = key.split('?')
                     axios({
