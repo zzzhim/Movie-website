@@ -23,5 +23,8 @@ router.get('/home', checkToken, MovieController.home)
 // 分类
 router.get('/dateTime', checkToken, MovieController.dateTime)
 
+router.get('/details', checkToken, MovieController.details)
+
+
 
 module.exports = router

@@ -21,8 +21,6 @@ class MovieController {
     async dateTime(ctx) {
         const { name, dateTime } = ctx.request.query
         let MovieAll
-        console.log(name);
-        console.log(dateTime);
         
         if(name == 'home') {
             MovieAll = await getUserByNameClassAll(Movie, { year: Number(dateTime) })
@@ -42,6 +40,23 @@ class MovieController {
                 success: false,
                 message: '暂无',
                 data: null
+            }
+        }
+    }
+
+    // 详情页
+    async details(ctx) {
+        const { id, tag } = ctx.request.query
+        
+        const MovieAll = await getUserByNameClassAll(Movie, { doubanId: id })
+        const recommend = await getUserByNameClassAll(Movie, { movieTypes: tag })
+        
+        ctx.body = {
+            status: 200,
+            success: true,
+            data: {
+                MovieAll,
+                recommend
             }
         }
     }

@@ -12,10 +12,10 @@ const router = require('./routes')
     await connect()
 
     // require('./tasks/movie')
-    // require('./tasks/api')
-    // require('./crawler/video')
-    // require('./tasks/trailer')
-    // require('./tasks/aliyunOSS')
+    // await require('./tasks/api')
+    // await require('./crawler/video')
+    // await require('./tasks/trailer')
+    // await require('./tasks/aliyunOSS')
 
 
     app.use(logger())

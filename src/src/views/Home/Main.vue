@@ -7,7 +7,7 @@
                         <img :src=" 'http://wangyafei---tupian.oss-cn-qingdao.aliyuncs.com/' + item.posterKey" class="box-card-box-image">
                     </router-link>
                     <div style="padding: 14px;">
-                        <router-link  class="box-card-title" tag="div" to=""> {{ item.title }}</router-link>
+                        <router-link  class="box-card-title" tag="div" :to="'/Details/' + item.doubanId + '?tag=' + item.movieTypes[0]"> {{ item.title }}</router-link>
                         <router-link to="" tag="div" class="box-card-content" :title="item.summary">
                             {{ item.summary }}
                         </router-link>

@@ -89,6 +89,7 @@
                 
                 for (let index = 0; index < CardData.length; index++) {
                     CardData[index].meta.createdAt = parseInt(moment(CardData[index].meta.createdAt).subtract(0).fromNow("YYYY-MM-DD"))
+                    
                 }
                 this.SET_CARD(CardData)
             })

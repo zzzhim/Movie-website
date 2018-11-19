@@ -23,6 +23,12 @@ const router = new Router({
       name: 'Registered',
       component: () => import('../views/Registered')
     },
+    {
+      path: '/Details/:id',
+      name: 'Details',
+      props: true,
+      component: () => import('../views/Details')
+    }
   ]
 })
 
