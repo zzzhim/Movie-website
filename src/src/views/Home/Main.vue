@@ -15,7 +15,7 @@
                     <div class="box-card-footer">
                         <div>
                             <i class="el-icon-time"></i>
-                            {{ item.meta.createdAt }}&nbsp;&nbsp;前更新
+                            {{ item.meta.createdAt }}&nbsp;&nbsp;天前更新
                         </div>
                         <div>
                             <i class="el-icon-star-off"></i>

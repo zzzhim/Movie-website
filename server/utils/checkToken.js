@@ -3,6 +3,7 @@ const { secret } = require('../config/config')
 
 module.exports = async ( ctx, next ) => {
   const XToken = ctx.get('X-Token')
+  console.log(111);
   console.log(XToken);
   
   try {

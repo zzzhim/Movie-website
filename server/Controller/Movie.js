@@ -8,7 +8,7 @@ class MovieController {
     // 首页
     async home(ctx) {
         const MovieAll = await getUserByNameAll(Movie)
-        
+
         ctx.body = {
             status: 200,
             success: true,
@@ -18,19 +18,25 @@ class MovieController {
     }
 
     // 分类
-    async classIfication(ctx) {
-        const name = ctx.request.query.name
+    async dateTime(ctx) {
+        const { name, dateTime } = ctx.request.query
+        let MovieAll
+        console.log(name);
+        console.log(dateTime);
         
-        const MovieAll = await getUserByNameClassAll(Movie, { tags: name})
-
+        if(name == 'home') {
+            MovieAll = await getUserByNameClassAll(Movie, { year: Number(dateTime) })
+        }else {
+            MovieAll = await getUserByNameClassAll(Movie, { tags: name, year: Number(dateTime) })
+        }
+        
         if (MovieAll.length > 0) {
             ctx.body = {
                 status: 200,
                 success: true,
-                message: name + '列表',
                 data: MovieAll
             }
-        }else {
+        } else {
             ctx.body = {
                 status: 200,
                 success: false,
@@ -38,8 +44,6 @@ class MovieController {
                 data: null
             }
         }
-
-        
     }
 }
 

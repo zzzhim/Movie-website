@@ -92,7 +92,7 @@
                             // 500毫秒后跳转到首页
                             setTimeout(() => {
                                 this.$router.push('/')
-                            }, 500);
+                            }, 1000);
                         })
                     } else {
                         this.$message({ // 消息提示

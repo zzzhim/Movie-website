@@ -21,6 +21,7 @@ router.post('/login', UserController.login)
 router.get('/home', checkToken, MovieController.home)
 
 // 分类
-router.get('/classIfication', checkToken, MovieController.classIfication)
+router.get('/dateTime', checkToken, MovieController.dateTime)
+
 
 module.exports = router
